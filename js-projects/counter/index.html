@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Project</title>
+    <style>
+        button {
+            size: 15px;
+            margin: 8px;
+            padding: 5px 25px;
+            width: 120px;
+            height: 40px;
+            border-radius: 5px;
+            
+        }
+        h1 {
+            width: 500px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Counter</h1>
+    <div id="counterOutput"  style=" width: 500px; height:200px; background-color:aliceblue; text-align:center; color: green; font-size: 200px;">
+        
+    </div>
+    <div id="counterButtons" style="width:500px; margin: 10px 25px;">
+        <button type="button" id="decreaseBtn" onclick="document.getElementById('counterOutput').innerHTML=--count">Decrease</button>
+        <button type="reset" id="resetBtn" onclick="resetCounter()">Reset</button>
+        <button type="button" id="increaseBtn" onclick="increaseCounter()">Increase</button>
+    </div>
+    <script>
+        let count=0;
+         document.getElementById("counterOutput").innerHTML=count;
+         console.log("counter: " + count);
+         function increaseCounter(){
+            document.getElementById("counterOutput").innerHTML = ++count;
+            console.log("counter increased")
+            console.log("counter: " + count);
+         }
+
+         function resetCounter(){
+            count=0;
+            document.getElementById('counterOutput').innerHTML=count;
+            console.log("counter: " + count);
+         }
+    </script>
+</body>
+</html>
