@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tms</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div class="add-todo-form-container">
+      <form name="addTodoFormName" id="addTodoForm" autocomplete="off">
+        <input type="number" hidden="true" id="todoId" />
+        <input
+          type="text"
+          id="todo_desc"
+          placeholder="Task Name"
+          size="40"
+          name="todo_desc"
+        />
+
+        <label>target by:</label>
+        <input type="radio" id="today_due_date" name="due_date" value="today" />
+        <label for="today_due_date">today</label>
+        <input type="radio" name="due_date" value="tomorrow" />
+        <label>tomorrow</label>
+
+        <input type="submit" value="Add Task" />
+      </form>
+      <h3 id="errorMsg"></h3>
+    </div>
+
+    <br /><br /><br />
+    <div id="todo_list">
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Due date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="todo_list_body"></tbody>
+      </table>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

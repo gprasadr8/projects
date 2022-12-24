@@ -1,0 +1,15 @@
+.hideBtn {
+    display: none;
+}
+
+.showBtn {
+    display: inline;
+}
+
+.completedTodo {
+    background-color: antiquewhite;
+}
+
+#errorMsg {
+    color: red;
+}
