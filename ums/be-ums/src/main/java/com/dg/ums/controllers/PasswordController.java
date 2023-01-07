@@ -1,20 +1,17 @@
 package com.dg.ums.controllers;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/user/{id}/password")
 public class PasswordController {
 
     @PostMapping(path = "reset-link")
-    public String sendPasswordResetLink(){
+    public String sendPasswordResetLink(@PathVariable int id){
         return "Password reset link is sent successfully..";
     }
     @PutMapping("/reset")
-    public void resetPassword(){
+    public void resetPassword(@PathVariable int id){
 
     }
 

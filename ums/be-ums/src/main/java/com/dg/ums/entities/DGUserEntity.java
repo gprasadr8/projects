@@ -1,6 +1,5 @@
 package com.dg.ums.entities;
 
-import com.dg.ums.model.Gender;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +13,7 @@ import java.time.LocalDate;
 @Table(name = "dg_ums_user")
 @Setter
 @Getter
-public class UserEntity {
+public class DGUserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +29,7 @@ public class UserEntity {
     private String email;
 
     @NotBlank(message = "Username should not be empty")
-    @Size(min = 8, max = 16)
+    @Size(min = 6, max = 16)
     private String username;
 
     private byte[] profilePic;
