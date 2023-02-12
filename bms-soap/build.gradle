@@ -1,0 +1,74 @@
+plugins {
+	id 'java'
+	id 'war'
+	id 'org.springframework.boot' version '2.7.8'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.dg.bms'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+	jaxb
+}
+
+sourceSets {
+	main {
+		java {
+			srcDir 'src/main/java'
+			srcDir 'build/generated-sources/jaxb'
+		}
+	}
+}
+
+task genJaxb {
+	ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
+	ext.schema = "src/main/resources/bms.xsd"
+
+	outputs.dir sourcesDir
+
+	doLast() {
+		project.ant {
+			taskdef name: "xjc", classname: "com.sun.tools.xjc.XJCTask",
+					classpath: configurations.jaxb.asPath
+			mkdir(dir: sourcesDir)
+
+			xjc(destdir: sourcesDir, schema: schema) {
+				arg(value: "-wsdl")
+				produces(dir: sourcesDir, includes: "**/*.java")
+			}
+		}
+	}
+}
+
+compileJava.dependsOn genJaxb
+
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	implementation 'wsdl4j:wsdl4j'
+	jaxb("org.glassfish.jaxb:jaxb-xjc")
+	// replacement for deprecated JDK module java.xml.bind
+	runtimeOnly 'javax.xml.bind:jaxb-api'
+	runtimeOnly 'org.glassfish.jaxb:jaxb-runtime'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+
+//https://spring.io/guides/gs/producing-web-service/

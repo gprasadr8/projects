@@ -1,13 +1,13 @@
 package com.dg.ums.service;
 
 import com.dg.ums.entities.DGUserEntity;
+import com.dg.ums.model.APIStatusResponse;
 import com.dg.ums.model.DGUser;
 import com.dg.ums.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -58,6 +58,30 @@ public class UserService {
             return convertFromEntity(entityOptional.get());
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("User Not Found with userId:%s", userId));
+        }
+    }
+
+    public DGUser updateUser(int userId, DGUser user) {
+        if(userRepository.existsById(userId)){
+            DGUserEntity userEntity = convertToEntity(user);
+            userEntity.setId(userId);
+            return convertFromEntity(userRepository.save(userEntity));
+        }else{
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("User Not Found with userId:%s", userId));
+        }
+    }
+
+    public APIStatusResponse deleteUser(int userId) {
+        userRepository.deleteById(userId);
+        return new APIStatusResponse(HttpStatus.OK,"User is Deleted Successfully.");
+    }
+
+    public DGUser getUserByUsername(String username) {
+        Optional<DGUserEntity> entityOptional = userRepository.findByUsername(username);
+        if (entityOptional.isPresent()) {
+            return convertFromEntity(entityOptional.get());
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("User Not Found with given username:%s", username));
         }
     }
 }

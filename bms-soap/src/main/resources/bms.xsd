@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.dg-bms.com/springsoap/gen"
+           targetNamespace="http://www.dg-bms.com/springsoap/gen" elementFormDefault="qualified">
+
+    <xs:element name="getAllBooks">
+        <xs:complexType>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getAllBooksResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="tns:book" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getBookByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bookId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBookByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="tns:book"/>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="addBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="tns:book"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="addBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="tns:book"/>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="updateBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="tns:book"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="updateBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="tns:book"/>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deleteBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bookId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deleteBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="book">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int" />
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="author" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="serviceStatus">
+        <xs:sequence>
+            <xs:element name="statusCode" type="tns:statusCode"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="statusCode">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SUCCESS"/>
+            <xs:enumeration value="NOT_FOUND"/>
+            <xs:enumeration value="BAD_REQUEST"/>
+            <xs:enumeration value="INTERNAL_SERVER_ERROR"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
