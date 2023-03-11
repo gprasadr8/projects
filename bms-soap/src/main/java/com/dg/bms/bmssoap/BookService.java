@@ -34,6 +34,7 @@ public class BookService {
     private Book convertFromDBBook(DBBook dbBook) {
         Book book = new Book();
         book.setId(dbBook.getId());
+        book.setIsbn(dbBook.getIsbn());
         book.setName(dbBook.getName());
         book.setAuthor(dbBook.getAuthor());
         book.setDescription(dbBook.getDesc());
@@ -55,6 +56,7 @@ public class BookService {
 
     private DBBook convertToDBBook(Book inputBook) {
         DBBook dbBook = new DBBook();
+        dbBook.setIsbn(inputBook.getIsbn());
         dbBook.setName(inputBook.getName());
         dbBook.setDesc(inputBook.getDescription());
         dbBook.setAuthor(inputBook.getAuthor());

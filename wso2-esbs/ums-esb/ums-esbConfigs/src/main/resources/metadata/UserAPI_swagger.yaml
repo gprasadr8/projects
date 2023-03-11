@@ -1,0 +1,46 @@
+openapi: 3.0.1
+info:
+  title: UserAPI
+  description: API Definition of UserAPI
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/esb-users
+paths:
+  /{userId}:
+    get:
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response
+    delete:
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response
+  /:
+    get:
+      responses:
+        default:
+          description: Default response
+    put:
+      responses:
+        default:
+          description: Default response
+    post:
+      responses:
+        default:
+          description: Default response

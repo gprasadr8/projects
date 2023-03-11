@@ -15,6 +15,8 @@ public class DBBook {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private String isbn;
+
     private String name;
 
     private String author;

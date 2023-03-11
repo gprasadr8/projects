@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/integrationstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_1bHLoMACEe2NgZN_rEcMRQ" type="Esb" name="bms" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_19gHAMACEe2NgZN_rEcMRQ" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_19pQ88ACEe2NgZN_rEcMRQ" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_21JgsMACEe2NgZN_rEcMRQ" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_21JgtcACEe2NgZN_rEcMRQ" type="5003"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_21JgscACEe2NgZN_rEcMRQ"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_21JgssACEe2NgZN_rEcMRQ" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_21Jgs8ACEe2NgZN_rEcMRQ"/>
+        <element xmi:type="esb:ProxyService" href="bms.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_21JgtMACEe2NgZN_rEcMRQ" width="300" height="400"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_19gHAcACEe2NgZN_rEcMRQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_19pQ8MACEe2NgZN_rEcMRQ" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_19pQ8cACEe2NgZN_rEcMRQ"/>
+    <element xmi:type="esb:EsbServer" href="bms.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_19pQ8sACEe2NgZN_rEcMRQ"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_1bHLocACEe2NgZN_rEcMRQ"/>
+  <element xmi:type="esb:EsbDiagram" href="bms.esb#/"/>
+</notation:Diagram>

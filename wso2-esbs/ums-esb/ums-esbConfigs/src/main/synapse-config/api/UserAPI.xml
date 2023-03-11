@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/esb-users" name="UserAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="DELETE GET" uri-template="/{userId}">
+        <inSequence>
+            <log description="Request Log" level="full" separator="&quot;&#xa;&quot;">
+                <property name="Welcome Property" value="Welcome to UMS Application"/>
+                <property name="Welcome Property" value="Single User API is invoked.."/>
+                <property expression="$ctx:userId" name="UserIdProp"/>
+                <property expression="get-property(&quot;uri.var.userId&quot;)" name="UserId"/>
+            </log>
+            <property action="remove" name="REST_URL_POSTFIX" scope="axis2"/>
+            <call>
+                <endpoint key="UMSSingleUserEP"/>
+            </call>
+            <log description="Response Log" separator="&quot;&#xa;&quot;">
+                <property expression="json-eval($.username)" name="Username"/>
+                <property expression="json-eval($)" name="Respone Payload form log mediator property"/>
+            </log>
+            <respond description="Respond"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST PUT GET">
+        <inSequence>
+            <log description="Request Log" level="full" separator="&quot;&#xa;&quot;">
+                <property name="Welcome Property" value="Welcome to UMS Application"/>
+                <property name="Welcome Property" value="All Users API is invoked.."/>
+            </log>
+            <call>
+                <endpoint key="UMSBackendEndPoint"/>
+            </call>
+            <respond description="Respond"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
