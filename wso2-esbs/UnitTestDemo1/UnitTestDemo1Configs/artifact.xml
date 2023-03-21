@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="RESTApi" groupId="wso2.sampleAPITest.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/RESTApi.xml</file>
+    </artifact>
+    <artifact name="RESTApi_swagger" groupId="wso2.sampleAPITest.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/RESTApi_swagger.yaml</file>
+    </artifact>
+    <artifact name="RESTApi_metadata" groupId="wso2.sampleAPITest.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/RESTApi_metadata.yaml</file>
+    </artifact>
+</artifacts>

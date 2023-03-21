@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="BookAPI" groupId="com.dg.wso2.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/BookAPI.xml</file>
+    </artifact>
+    <artifact name="BookAPI_swagger" groupId="com.dg.wso2.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/BookAPI_swagger.yaml</file>
+    </artifact>
+    <artifact name="BookAPI_metadata" groupId="com.dg.wso2.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/BookAPI_metadata.yaml</file>
+    </artifact>
+    <artifact name="BMSSoapEndPoint" groupId="com.dg.wso2.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/BMSSoapEndPoint.xml</file>
+    </artifact>
+    <artifact name="LogReqAndRemoveRestPostfixSeq" groupId="com.dg.wso2.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/LogReqAndRemoveRestPostfixSeq.xml</file>
+    </artifact>
+    <artifact name="BookCoverServiceEP" groupId="com.dg.wso2.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/BookCoverServiceEP.xml</file>
+    </artifact>
 </artifacts>

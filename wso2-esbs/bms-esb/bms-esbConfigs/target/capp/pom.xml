@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.dg.wso2</groupId>
+  <artifactId>bms-esbConfigs_module</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>bms-esbConfigs_module</name>
+  <description>bms-esbConfigs_module</description>
+  <modules>
+    <module>artifacts\api\BookAPI</module>
+    <module>artifacts\metadata\BookAPI_swagger</module>
+    <module>artifacts\metadata\BookAPI_metadata</module>
+    <module>artifacts\endpoint\BMSSoapEndPoint</module>
+  </modules>
+  <distributionManagement>
+    <repository>
+      <id>release</id>
+      <name>Release Distribution Repository</name>
+      <url>https://example.com/nexus/repository</url>
+    </repository>
+  </distributionManagement>
+</project>

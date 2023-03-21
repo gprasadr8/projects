@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/healthcare" name="HealthcareAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/categories/{category}/reserve">
+        <inSequence>
+            <property description="Hospital Name" expression="json-eval($.hospital)" name="Hospital" scope="default" type="STRING"/>
+            <switch source="get-property('Hospital')">
+                <case regex="grand oak community hospital">
+                    <log description="Grand Oak Log" level="custom">
+                        <property expression="fn:concat('Routing to ', get-property('Hospital'))" name="message"/>
+                    </log>
+                    <call>
+                        <endpoint key="GrandOakEP"/>
+                    </call>
+                </case>
+                <case regex="clemency medical center">
+                    <log description="Clemency Log">
+                        <property expression="fn:concat('Routing to ', get-property('Hospital'))" name="message"/>
+                    </log>
+                    <call>
+                        <endpoint key="ClemencyEP"/>
+                    </call>
+                </case>
+                <case regex="pine valley community hospital">
+                    <log description="Pine Valley Log">
+                        <property expression="fn:concat('Routing to ', get-property('Hospital'))" name="message"/>
+                    </log>
+                    <call>
+                        <endpoint key="PineValleyEP"/>
+                    </call>
+                </case>
+                <default>
+                    <log description="Default Log">
+                        <property expression="fn:concat('Invalid Hospital Name: ', get-property('Hospital'))" name="message"/>
+                    </log>
+                </default>
+            </switch>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

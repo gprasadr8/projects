@@ -3,61 +3,40 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.dg.wso2</groupId>
-    <artifactId>bms-esb</artifactId>
+    <groupId>wso2.sampleAPITest</groupId>
+    <artifactId>UnitTestDemo1</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.dg.wso2</groupId>
-  <artifactId>bms-esbCompositeExporter</artifactId>
+  <groupId>wso2.sampleAPITest</groupId>
+  <artifactId>UnitTestDemo1CompositeExporter</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>carbon/application</packaging>
-  <name>bms-esbCompositeExporter</name>
-  <description>bms-esbCompositeExporter</description>
+  <name>UnitTestDemo1CompositeExporter</name>
+  <description>UnitTestDemo1CompositeExporter</description>
   <properties>
-    <com.dg.wso2.endpoint_._BookCoverServiceEP>capp/EnterpriseServiceBus</com.dg.wso2.endpoint_._BookCoverServiceEP>
-    <com.dg.wso2.api_._BookAPI>capp/EnterpriseServiceBus</com.dg.wso2.api_._BookAPI>
-    <com.dg.wso2.endpoint_._BMSSoapEndPoint>capp/EnterpriseServiceBus</com.dg.wso2.endpoint_._BMSSoapEndPoint>
-    <com.dg.wso2.sequence_._LogReqAndRemoveRestPostfixSeq>capp/EnterpriseServiceBus</com.dg.wso2.sequence_._LogReqAndRemoveRestPostfixSeq>
-    <com.dg.wso2.metadata_._BookAPI_metadata>capp/EnterpriseServiceBus</com.dg.wso2.metadata_._BookAPI_metadata>
+    <wso2.sampleAPITest.api_._RESTApi>capp/EnterpriseServiceBus</wso2.sampleAPITest.api_._RESTApi>
+    <wso2.sampleAPITest.metadata_._RESTApi_metadata>capp/EnterpriseServiceBus</wso2.sampleAPITest.metadata_._RESTApi_metadata>
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,synapse/metadata=yaml,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
-    <com.dg.wso2.metadata_._BookAPI_swagger>capp/EnterpriseServiceBus</com.dg.wso2.metadata_._BookAPI_swagger>
+    <wso2.sampleAPITest.metadata_._RESTApi_swagger>capp/EnterpriseServiceBus</wso2.sampleAPITest.metadata_._RESTApi_swagger>
   </properties>
   <dependencies>
     <dependency>
-      <groupId>com.dg.wso2.endpoint</groupId>
-      <artifactId>BookCoverServiceEP</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.dg.wso2.api</groupId>
-      <artifactId>BookAPI</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.dg.wso2.endpoint</groupId>
-      <artifactId>BMSSoapEndPoint</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.dg.wso2.sequence</groupId>
-      <artifactId>LogReqAndRemoveRestPostfixSeq</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.dg.wso2.metadata</groupId>
-      <artifactId>BookAPI_metadata</artifactId>
+      <groupId>wso2.sampleAPITest.metadata</groupId>
+      <artifactId>RESTApi_metadata</artifactId>
       <version>1.0.0</version>
       <type>yaml</type>
     </dependency>
     <dependency>
-      <groupId>com.dg.wso2.metadata</groupId>
-      <artifactId>BookAPI_swagger</artifactId>
+      <groupId>wso2.sampleAPITest.metadata</groupId>
+      <artifactId>RESTApi_swagger</artifactId>
       <version>1.0.0</version>
       <type>yaml</type>
+    </dependency>
+    <dependency>
+      <groupId>wso2.sampleAPITest.api</groupId>
+      <artifactId>RESTApi</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
     </dependency>
   </dependencies>
   <repositories>
@@ -68,15 +47,15 @@
         <checksumPolicy>ignore</checksumPolicy>
       </releases>
       <id>wso2-nexus</id>
-      <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+      <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
     </repository>
     <repository>
       <id>wso2-maven2-repository-1</id>
-      <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+      <url>http://dist.wso2.org/maven2</url>
     </repository>
     <repository>
       <id>wso2-nexus-repository-1</id>
-      <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+      <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
     </repository>
   </repositories>
   <pluginRepositories>
@@ -87,15 +66,15 @@
         <checksumPolicy>ignore</checksumPolicy>
       </releases>
       <id>wso2-nexus</id>
-      <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+      <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
     </pluginRepository>
     <pluginRepository>
       <id>wso2-maven2-repository-1</id>
-      <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+      <url>http://dist.wso2.org/maven2</url>
     </pluginRepository>
     <pluginRepository>
       <id>wso2-nexus-repository-1</id>
-      <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+      <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
     </pluginRepository>
   </pluginRepositories>
   <build>

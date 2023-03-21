@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/esb-books" name="BookAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <sequence key="LogReqAndRemoveRestPostfixSeq"/>
+            <payloadFactory media-type="xml">
+                <format>
+                    <soapenv:Envelope xmlns:gen="http://www.dg-bms.com/springsoap/gen" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                        <soapenv:Header/>
+                        <soapenv:Body>
+                            <gen:getAllBooks/>
+                        </soapenv:Body>
+                    </soapenv:Envelope>
+                </format>
+                <args/>
+            </payloadFactory>
+            <!-- Action header is not required from latest SOAP Format  -->
+            <header description="SOAPAction" name="Action" scope="default" value="urn:getAllBooks"/>
+            <property name="messageType" scope="axis2" type="STRING" value="application/soap+xml"/>
+            <log description="Log Payload After Transformation" level="full" separator="&quot;&#xa;&quot;"/>
+            <call>
+                <endpoint key="BMSSoapEndPoint"/>
+            </call>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <log description="Log Response" level="full" separator="&quot;&#xa;&quot;"/>
+            <payloadFactory description="Response Transformation" media-type="json">
+                <format>$1</format>
+                <args>
+                    <arg evaluator="json" expression="$.getAllBooksResponse"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/{bookId}">
+        <inSequence>
+            <sequence key="LogReqAndRemoveRestPostfixSeq"/>
+            <log description="Log Request Payload" level="full" separator="&quot;&#xa;&quot;">
+                <property expression="get-property(&quot;uri.var.bookId&quot;)" name="Book Id"/>
+                <property name="Web Service Action" value="getBookById is called....."/>
+            </log>
+            <payloadFactory media-type="xml">
+                <format>
+                    <soapenv:Envelope xmlns:gen="http://www.dg-bms.com/springsoap/gen" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                        <soapenv:Header/>
+                        <soapenv:Body>
+                            <gen:getBookByIdRequest>
+                                <gen:bookId>$1</gen:bookId>
+                            </gen:getBookByIdRequest>
+                        </soapenv:Body>
+                    </soapenv:Envelope>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('uri.var.bookId')"/>
+                </args>
+            </payloadFactory>
+            <!-- Action header is not required from latest SOAP Format  -->
+            <property name="messageType" scope="axis2" type="STRING" value="application/soap+xml"/>
+            <log description="Log Payload After Transformation" level="full" separator="&quot;&#xa;&quot;"/>
+            <call>
+                <endpoint key="BMSSoapEndPoint"/>
+            </call>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <property description="Book" expression="json-eval($.getBookByIdResponse.book)" name="responseBook" scope="default" type="STRING"/>
+            <property description="isbn" expression="json-eval($.getBookByIdResponse.book.isbn)" name="uri.var.isbn" scope="default" type="STRING"/>
+            <log description="Log Response" level="full" separator="&quot;&#xa;&quot;"/>
+            <call>
+                <endpoint key="BookCoverServiceEP"/>
+            </call>
+            <payloadFactory media-type="json">
+                <format>
+            		{
+            			"id":$1,
+            			"isbn":$2,
+            			"title":$3,
+            			"author":$4,
+            			"image":$5            			
+            		}
+            	</format>
+                <args>
+                    <arg evaluator="json" expression="$ctx:responseBook.id"/>
+                    <arg evaluator="json" expression="$ctx:responseBook.isbn"/>
+                    <arg evaluator="json" expression="$ctx:responseBook.name"/>
+                    <arg evaluator="json" expression="$ctx:responseBook.author"/>
+                    <arg evaluator="json" expression="$.imageRawBytes"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

@@ -3,19 +3,19 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.dg.wso2</groupId>
-    <artifactId>bms-esb</artifactId>
+    <groupId>wso2.sampleExceptionHandlingTemplate</groupId>
+    <artifactId>exception-handling-esb</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.dg.wso2</groupId>
-  <artifactId>bms-esbConfigs</artifactId>
+  <groupId>wso2.sampleExceptionHandlingTemplate</groupId>
+  <artifactId>exception-handling-esbConfigs</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>bms-esbConfigs</name>
-  <description>bms-esbConfigs</description>
+  <name>exception-handling-esbConfigs</name>
+  <description>exception-handling-esbConfigs</description>
   <properties>
-    <maven.test.skip>false</maven.test.skip>
     <CApp.type>bpel/workflow=zip,lib/registry/filter=jar,webapp/jaxws=war,lib/library/bundle=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/proxy-service=xml,carbon/application=car,registry/resource=zip,lib/dataservice/validator=jar,synapse/endpoint=xml,web/application=war,lib/carbon/ui=jar,service/axis2=aar,synapse/sequence=xml,synapse/configuration=xml,wso2/gadget=dar,lib/registry/handlers=jar,lib/synapse/mediator=jar,synapse/task=xml,synapse/api=xml,synapse/template=xml,synapse/message-store=xml,synapse/message-processors=xml,synapse/inbound-endpoint=xml,synapse/metadata=yaml</CApp.type>
+    <maven.test.skip>false</maven.test.skip>
   </properties>
   <repositories>
     <repository>
@@ -25,7 +25,7 @@
         <checksumPolicy>ignore</checksumPolicy>
       </releases>
       <id>wso2-nexus</id>
-      <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+      <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
     </repository>
   </repositories>
   <pluginRepositories>
@@ -36,7 +36,7 @@
         <checksumPolicy>ignore</checksumPolicy>
       </releases>
       <id>wso2-nexus</id>
-      <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+      <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
     </pluginRepository>
   </pluginRepositories>
   <build>
@@ -134,33 +134,6 @@
       </plugin>
       <plugin>
         <groupId>org.wso2.maven</groupId>
-        <artifactId>wso2-esb-proxy-plugin</artifactId>
-        <version>2.1.0</version>
-        <extensions>true</extensions>
-        <executions>
-          <execution>
-            <id>proxy</id>
-            <phase>process-resources</phase>
-            <goals>
-              <goal>pom-gen</goal>
-            </goals>
-            <configuration>
-              <artifactLocation>.</artifactLocation>
-              <typeList>${artifact.types}</typeList>
-            </configuration>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>com.sun.activation</groupId>
-            <artifactId>javax.activation</artifactId>
-            <version>1.2.0</version>
-          </dependency>
-        </dependencies>
-        <configuration />
-      </plugin>
-      <plugin>
-        <groupId>org.wso2.maven</groupId>
         <artifactId>wso2-esb-api-plugin</artifactId>
         <version>2.1.0</version>
         <extensions>true</extensions>
@@ -215,12 +188,12 @@
       </plugin>
       <plugin>
         <groupId>org.wso2.maven</groupId>
-        <artifactId>wso2-esb-endpoint-plugin</artifactId>
+        <artifactId>wso2-esb-sequence-plugin</artifactId>
         <version>2.1.0</version>
         <extensions>true</extensions>
         <executions>
           <execution>
-            <id>endpoint</id>
+            <id>sequence</id>
             <phase>process-resources</phase>
             <goals>
               <goal>pom-gen</goal>
@@ -242,12 +215,12 @@
       </plugin>
       <plugin>
         <groupId>org.wso2.maven</groupId>
-        <artifactId>wso2-esb-sequence-plugin</artifactId>
+        <artifactId>wso2-esb-endpoint-plugin</artifactId>
         <version>2.1.0</version>
         <extensions>true</extensions>
         <executions>
           <execution>
-            <id>sequence</id>
+            <id>endpoint</id>
             <phase>process-resources</phase>
             <goals>
               <goal>pom-gen</goal>

@@ -1,0 +1,38 @@
+openapi: 3.0.1
+info:
+  title: BookAPI
+  description: API Definition of BookAPI
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/esb-books
+paths:
+  /{bookId}:
+    get:
+      parameters:
+      - name: bookId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response
+    delete:
+      parameters:
+      - name: bookId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response
+  /:
+    get:
+      responses:
+        default:
+          description: Default response

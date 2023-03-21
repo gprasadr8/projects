@@ -3,16 +3,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.dg.wso2</groupId>
-    <artifactId>bms-esb</artifactId>
+    <groupId>com.dg.wso2.esb</groupId>
+    <artifactId>msg-routing-esb</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.dg.wso2</groupId>
-  <artifactId>bms-esbConfigs</artifactId>
+  <groupId>com.dg.wso2.esb</groupId>
+  <artifactId>msg-routing-esbConfigs</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>bms-esbConfigs</name>
-  <description>bms-esbConfigs</description>
+  <name>msg-routing-esbConfigs</name>
+  <description>msg-routing-esbConfigs</description>
   <properties>
     <maven.test.skip>false</maven.test.skip>
     <CApp.type>bpel/workflow=zip,lib/registry/filter=jar,webapp/jaxws=war,lib/library/bundle=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/proxy-service=xml,carbon/application=car,registry/resource=zip,lib/dataservice/validator=jar,synapse/endpoint=xml,web/application=war,lib/carbon/ui=jar,service/axis2=aar,synapse/sequence=xml,synapse/configuration=xml,wso2/gadget=dar,lib/registry/handlers=jar,lib/synapse/mediator=jar,synapse/task=xml,synapse/api=xml,synapse/template=xml,synapse/message-store=xml,synapse/message-processors=xml,synapse/inbound-endpoint=xml,synapse/metadata=yaml</CApp.type>
@@ -134,12 +134,12 @@
       </plugin>
       <plugin>
         <groupId>org.wso2.maven</groupId>
-        <artifactId>wso2-esb-proxy-plugin</artifactId>
+        <artifactId>wso2-esb-endpoint-plugin</artifactId>
         <version>2.1.0</version>
         <extensions>true</extensions>
         <executions>
           <execution>
-            <id>proxy</id>
+            <id>endpoint</id>
             <phase>process-resources</phase>
             <goals>
               <goal>pom-gen</goal>
@@ -194,60 +194,6 @@
         <executions>
           <execution>
             <id>metadata</id>
-            <phase>process-resources</phase>
-            <goals>
-              <goal>pom-gen</goal>
-            </goals>
-            <configuration>
-              <artifactLocation>.</artifactLocation>
-              <typeList>${artifact.types}</typeList>
-            </configuration>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>com.sun.activation</groupId>
-            <artifactId>javax.activation</artifactId>
-            <version>1.2.0</version>
-          </dependency>
-        </dependencies>
-        <configuration />
-      </plugin>
-      <plugin>
-        <groupId>org.wso2.maven</groupId>
-        <artifactId>wso2-esb-endpoint-plugin</artifactId>
-        <version>2.1.0</version>
-        <extensions>true</extensions>
-        <executions>
-          <execution>
-            <id>endpoint</id>
-            <phase>process-resources</phase>
-            <goals>
-              <goal>pom-gen</goal>
-            </goals>
-            <configuration>
-              <artifactLocation>.</artifactLocation>
-              <typeList>${artifact.types}</typeList>
-            </configuration>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>com.sun.activation</groupId>
-            <artifactId>javax.activation</artifactId>
-            <version>1.2.0</version>
-          </dependency>
-        </dependencies>
-        <configuration />
-      </plugin>
-      <plugin>
-        <groupId>org.wso2.maven</groupId>
-        <artifactId>wso2-esb-sequence-plugin</artifactId>
-        <version>2.1.0</version>
-        <extensions>true</extensions>
-        <executions>
-          <execution>
-            <id>sequence</id>
             <phase>process-resources</phase>
             <goals>
               <goal>pom-gen</goal>

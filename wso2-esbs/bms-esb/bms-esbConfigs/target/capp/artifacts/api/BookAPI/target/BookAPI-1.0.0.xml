@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/esb-books" name="BookAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="DELETE GET" uri-template="/{bookId}">
+        <inSequence>
+            <log description="Request Log" separator="&quot;&#xa;&quot;">
+                <property name="Book Id" value="BMS Single Book API is invoked..."/>
+                <property expression="get-property(&quot;uri.var.bookId&quot;)" name="Book Id"/>
+            </log>
+            <payloadFactory description="json to xml" media-type="xml">
+                <format>
+                    <inline xmlns="">
+                        <soapenv:Envelope xmlns:gen="http://www.dg-bms.com/springsoap/gen" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                            <soapenv:Header/>
+                            <soapenv:Body>
+                                <gen:getBookByIdRequest>
+                                    <gen:bookId>$1</gen:bookId>
+                                </gen:getBookByIdRequest>
+                            </soapenv:Body>
+                        </soapenv:Envelope>
+                    </inline>
+                </format>
+                <args>
+                    <arg value="get-property(uri.var.bookId)"/>
+                </args>
+            </payloadFactory>
+            <call>
+                <endpoint key="BMSSoapEndPoint"/>
+            </call>
+            <log description="Response Log" level="full" separator="&quot;&#xa;&quot;"/>
+            <respond description="Return"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET">
+        <inSequence>
+            <log description="Request Log" separator="&quot;&#xa;&quot;">
+                <property name="Book Id" value="BMS ALL Books API is invoked..."/>
+            </log>
+            <payloadFactory description="json to xml" media-type="xml">
+                <format>
+                    <inline xmlns="">
+                        <soapenv:Envelope xmlns:gen="http://www.dg-bms.com/springsoap/gen" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                            <soapenv:Header/>
+                            <soapenv:Body>
+                                <gen:getAllBooks/>
+                            </soapenv:Body>
+                        </soapenv:Envelope>
+                    </inline>
+                </format>
+                <args/>
+            </payloadFactory>
+            <call>
+                <endpoint key="BMSSoapEndPoint"/>
+            </call>
+            <log description="Response Log" level="full" separator="&quot;&#xa;&quot;"/>
+            <respond description="Return"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
