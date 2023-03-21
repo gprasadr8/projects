@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'com.dg'
+version '1.0-SNAPSHOT'
+
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "com.dg.HelloDocker"
+    }
+
+}
+configurations {
+    jar.archiveName = 'hello-docker.jar'
+}

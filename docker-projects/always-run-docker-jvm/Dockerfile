@@ -2,7 +2,7 @@ FROM openjdk:11
 
 RUN mkdir /app
 
-COPY HelloDocker.class /app/HelloDockerSleep.class
+COPY HelloDockerSleep.class /app
 
 WORKDIR /app
 

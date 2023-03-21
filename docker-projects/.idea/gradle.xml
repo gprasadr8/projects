@@ -4,11 +4,11 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/java-hello-world-docker" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/hello-docker-jar" />
         <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/java-hello-world-docker" />
+            <option value="$PROJECT_DIR$/hello-docker-jar" />
           </set>
         </option>
       </GradleProjectSettings>

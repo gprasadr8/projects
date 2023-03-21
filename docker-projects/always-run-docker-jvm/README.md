@@ -24,36 +24,25 @@ CMD java HelloDockerSleep
 
 - Build an image from a Dockerfile.
 - Go to dir where we have Dockerfile and run below cmd
-```shell
-docker build . # this will create an image but without any name
-# dot(.) represents current dir where Dockerfile located
-docker images
- 
- # result:
- REPOSITORY        TAG       IMAGE ID       CREATED          SIZE
- #<none>          <none>    b6f4c319a35d   9 minutes ago    654MB
-```
-
-- to give a name to building image run below command:
 
 ```shell
 # image with only name
-docker build -t my_hello_docker .
-# build image with name:version
-docker build -t my_hello_docker:1.0 . 
-docker images
-#result:
-#REPOSITORY        TAG       IMAGE ID       CREATED          SIZE
-#my_hello_docker   latest    b6f4c319a35d   13 minutes ago   654MB
+docker build -t my_hello_docker_sleep .
 ```
+
 - Now we successfully built the image let's run the docker image
 
 ```shell
-docker run my_hello_docker
-#run with version
-docker run my_hello_docker:1.0
+docker run my_hello_docker_sleep
 ```
 - it executes the main method and prints: `Hello Docker!`
+- Every 5 seconds it displays: `HelloDockerSleep running......`
+
+- To stop the container run `docker ps` command and get the container id then run below command
+```shell
+docker stop container_id
+```
+
 
 
 
