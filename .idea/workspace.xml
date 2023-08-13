@@ -1,33 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a0e05c22-23b2-4117-ab99-67b8d04e02bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bms-soap/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bms-soap/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wso2-esbs/bms-esb/bms-esbCompositeExporter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wso2-esbs/bms-esb/bms-esbCompositeExporter/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wso2-esbs/bms-esb/bms-esbConfigs/artifact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wso2-esbs/bms-esb/bms-esbConfigs/artifact.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wso2-esbs/bms-esb/bms-esbConfigs/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wso2-esbs/bms-esb/bms-esbConfigs/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bms-rest/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bms-rest/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bms-rest/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bms-rest/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bms-rest/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bms-rest/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bms-rest/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bms-rest/src/main/java/com/dg/bms/rest/BmsRestApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bms-rest/src/main/java/com/dg/bms/rest/BookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bms-rest/src/main/java/com/dg/bms/rest/entity/DBBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bms-rest/src/main/java/com/dg/bms/rest/repository/BookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bms-rest/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bms-rest/src/test/java/com/dg/bms/rest/BmsRestApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2NHsPXXeaILE0tgYssQHq11mmuo" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/PR/git-repos/projects"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "11",
+    "last_opened_file_path": "C:/PR/git-repos/projects/bms-rest"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\PR\git-repos\projects\bms-rest\src\main\java\com\dg\bms\rest" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -49,5 +87,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

@@ -1,0 +1,31 @@
+#RegBtn {
+    margin-bottom: 50px;
+}
+
+th, td {
+    width: 150px;
+    text-align: right;
+    padding: 5px
+}
+#stdList {
+    margin-top: 100px;
+}
+#stdRegFormTbl,
+#stdRegFormTbl th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.stdListTbl,
+.stdListTbl tr,
+.stdListTbl th,
+.stdListTbl td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.actionImage {
+    float: left;
+    margin-inline-end: 5px;
+    width: 22px;
+}
+

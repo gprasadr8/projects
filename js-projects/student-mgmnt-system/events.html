@@ -1,0 +1,27 @@
+<div
+  id="mouseEvent"
+  style="font-size: large; background-color: cornsilk"
+  onclick="clickedEvent()"
+>
+  Hello World!
+</div>
+<script>
+  var divElement = document.getElementById("mouseEvent");
+  divElement.addEventListener("click", (event) => {
+    alert(`event: ${event}`);
+  });
+  divElement.addEventListener("click", method_2);
+
+  divElement.addEventListener("click", (event) => {
+    alert(`click 3..!`);
+  });
+
+  function clickedEvent() {
+    alert("div is clicked..!");
+    //method_2();
+  }
+
+  function method_2() {
+    alert("I am function 2");
+  }
+</script>

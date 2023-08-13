@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>student-mgmnt-system</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div id="RegBtn">
+      <button onclick="toggleRegForm('RegFormContainer')">
+        Add New Student
+      </button>
+    </div>
+    <div id="RegFormContainer" style="display: none">
+      <table id="stdRegFormTbl">
+        <thead>
+          <th colspan="2" style="text-align: center">
+            Student Registration Form
+          </th>
+        </thead>
+        <form id="stdRegForm" method="post">
+          <tbody>
+            <tr>
+              <td>Roll NO:</td>
+              <td><input type="text" name="rollNum" /></td>
+            </tr>
+            <tr>
+              <td>First Name:</td>
+              <td><input type="text" name="firstName" /></td>
+            </tr>
+            <tr>
+              <td>Last Name:</td>
+              <td><input type="text" name="lastName" /></td>
+            </tr>
+            <tr>
+              <td><label for="stdClass">Class:</label></td>
+              <td>
+                <select name="class" id="stdClass" style="width: 100%">
+                  <option selected>Choose Class</option>
+                  <option value="VIII">VIII</option>
+                  <option value="IX">IX</option>
+                  <option value="X">X</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td
+                colspan="2"
+                style="text-align: center; background-color: darkgrey"
+              >
+                Marks
+              </td>
+            </tr>
+            <tr>
+              <td>Telugu:</td>
+              <td><input type="number" name="telugu" /></td>
+            </tr>
+            <tr>
+              <td>Hindi:</td>
+              <td><input type="number" name="hindi" /></td>
+            </tr>
+            <tr>
+              <td>English:</td>
+              <td><input type="number" name="english" /></td>
+            </tr>
+            <tr>
+              <td>Maths:</td>
+              <td><input type="number" name="maths" /></td>
+            </tr>
+            <tr>
+              <td>Science:</td>
+              <td><input type="number" name="science" /></td>
+            </tr>
+            <tr>
+              <td>Social:</td>
+              <td><input type="number" name="social" /></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="submit" /> &nbsp;&nbsp;<input type="reset" />
+              </td>
+            </tr>
+          </tbody>
+        </form>
+      </table>
+    </div>
+
+    <div id="stdList">
+      <table id="stdListTbl" class="stdListTbl" style="width: 80%">
+        <thead>
+          <tr>
+            <th rowspan="2">Roll Num</th>
+            <th rowspan="2">Name</th>
+            <th rowspan="2">Class</th>
+            <th colspan="6" style="text-align: center">Marks</th>
+            <th rowspan="2">Total</th>
+            <th rowspan="2">Grade</th>
+            <th rowspan="2">Actions</th>
+          </tr>
+          <tr>
+            <th>Telugu</th>
+            <th>Hindi</th>
+            <th>English</th>
+            <th>Maths</th>
+            <th>Science</th>
+            <th>Social</th>
+          </tr>
+        </thead>
+        <tbody id="stdRows"></tbody>
+      </table>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
