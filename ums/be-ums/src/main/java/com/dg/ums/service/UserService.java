@@ -1,6 +1,7 @@
 package com.dg.ums.service;
 
 import com.dg.ums.entities.DGUserEntity;
+import com.dg.ums.exception.UserNotFoundException;
 import com.dg.ums.model.APIStatusResponse;
 import com.dg.ums.model.DGUser;
 import com.dg.ums.repository.UserRepository;
@@ -57,7 +58,7 @@ public class UserService {
         if (entityOptional.isPresent()) {
             return convertFromEntity(entityOptional.get());
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("User Not Found with userId:%s", userId));
+            throw new UserNotFoundException(String.format("User Not Found with userId:%s", userId));
         }
     }
 

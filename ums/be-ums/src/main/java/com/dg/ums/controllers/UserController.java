@@ -4,9 +4,13 @@ import com.dg.ums.model.APIStatusResponse;
 import com.dg.ums.model.DGUser;
 import com.dg.ums.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -33,16 +37,21 @@ public class UserController {
     }
 
     @PostMapping
-    public DGUser addUser(@RequestBody DGUser newUser){
+    public ResponseEntity<DGUser> addUser(@Valid @RequestBody DGUser newUser){
         System.out.println("======================================");
         System.out.println("addUser API is Called............");
         System.out.println("======================================");
         displayHeaders();
-        return userService.addUser(newUser);
+        DGUser savedUser = userService.addUser(newUser);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(savedUser.getId())
+                .toUri();
+        return ResponseEntity.created(location).build();
     }
 
     @PutMapping(path = "/{userId}")
-    public DGUser updateUser(@PathVariable int userId, @RequestBody DGUser user){
+    public DGUser updateUser(@PathVariable int userId, @Valid @RequestBody DGUser user){
         System.out.println("======================================");
         System.out.println("updateUser API is Called............");
         System.out.println("======================================");

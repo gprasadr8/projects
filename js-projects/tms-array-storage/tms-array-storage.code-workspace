@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../student-mgmnt-system"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "student-mgmnt-system"
+	}
+}
